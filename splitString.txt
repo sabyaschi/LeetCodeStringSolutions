@@ -1,0 +1,21 @@
+class Solution {
+    public int balancedStringSplit(String s) {
+
+        int cnt = 0;
+        int ttl = 0;
+        for(char ch : s.toCharArray()){
+            if(ch == 'R'){
+                cnt++;
+            }
+            if(ch == 'L'){
+                cnt--;
+            }
+            if(cnt==0){
+                ttl++;
+            }
+        }
+
+        return ttl;
+        
+    }
+}
