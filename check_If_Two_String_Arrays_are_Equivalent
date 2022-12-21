@@ -1,0 +1,16 @@
+class Solution {
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+
+        StringBuilder a1 = new StringBuilder();
+        StringBuilder a2 = new StringBuilder();
+
+        for(String w1 : word1){
+            a1.append(w1);
+        }
+        for(String w2 : word2){
+            a2.append(w2);
+        }
+        return a1.toString().equals(a2.toString());
+        
+    }
+}
