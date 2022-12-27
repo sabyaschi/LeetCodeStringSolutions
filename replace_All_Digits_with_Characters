@@ -1,0 +1,22 @@
+class Solution {
+    public char shift(char ch,int a){
+        int n = (ch - '0')+a;
+        char c = (char)n;
+        return c;
+    }
+    public String replaceDigits(String s) {
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(c>='a' && c<= 'z'){
+                sb.append(c);
+            }
+            else{
+                char ch = shift(c,(int)s.charAt(i-1));
+                sb.append(ch);
+
+            }
+        }
+        return sb.toString();
+    }
+}
