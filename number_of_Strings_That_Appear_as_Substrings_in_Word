@@ -1,0 +1,10 @@
+class Solution {
+    public int numOfStrings(String[] patterns, String word) {
+        int cnt =0;
+        for(String ch : patterns)
+        if(word.contains(ch)){
+            cnt++;
+        }
+        return cnt;
+    }
+}
