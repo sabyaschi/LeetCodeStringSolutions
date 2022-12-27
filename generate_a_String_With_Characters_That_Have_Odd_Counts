@@ -1,0 +1,11 @@
+class Solution {
+    public String generateTheString(int n) {
+        String ans = "";
+        int p = 97;
+        for(int i=1;i<=n;i++){
+            ans += (char)p;
+            p++;
+        }
+        return ans;
+    }
+}
