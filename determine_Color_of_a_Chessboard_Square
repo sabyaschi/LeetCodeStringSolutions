@@ -1,0 +1,28 @@
+class Solution {
+    public boolean squareIsWhite(String coordinates) {
+        boolean f = true;
+        int al = 0;
+        int num = 0;
+            for(int i=0;i<2;i++){
+                if(i==0){
+                    al = (int)coordinates.charAt(i) - '0';
+                }
+                else{
+                    num = (int)coordinates.charAt(i) - '0';
+                }
+            }
+        if(al%2!=0 && num%2==0){
+            f= true;
+        }
+        if(al%2==0 && num%2!=0){
+            f= true;
+        }
+        if(al%2==0 && num%2==0){
+            f= false;
+        }
+        if(al%2!=0 && num%2 != 0){
+            f= false;
+        }
+        return f;
+    }
+}
