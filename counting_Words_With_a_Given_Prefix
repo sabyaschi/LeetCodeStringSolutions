@@ -1,0 +1,17 @@
+class Solution {
+    public int prefixCount(String[] words, String pref) {
+        int ans = 0;
+        boolean f = false;
+       
+        for(String s : words){
+            if(s.startsWith(pref)){
+                f = true;
+                if(f){
+                ans++;
+            }
+            }
+            
+        }
+        return ans;
+    }
+}
