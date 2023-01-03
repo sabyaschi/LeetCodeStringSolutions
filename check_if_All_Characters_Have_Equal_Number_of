@@ -1,0 +1,16 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        int ans[] = new int[26];
+        int mx = 0;
+        for(char c : s.toCharArray()){
+            ans[c-'a']++;
+            mx = Math.max(mx,ans[c-'a']);
+        }
+        for(int i : ans){
+            if(i!=0 && i!=mx){
+                return false;
+            }
+        }
+        return true;
+    }
+}
