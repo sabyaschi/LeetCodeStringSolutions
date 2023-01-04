@@ -1,0 +1,24 @@
+class Solution {
+    public boolean judgeCircle(String moves) {
+       boolean f = false;
+       int s = 0 , st = 0;
+       for(char c : moves.toCharArray()){
+           if(c=='U'){
+               s++;
+           }
+           else if(c=='D'){
+               s--;
+           }
+           else if(c=='R'){
+               st++;
+           }
+           else{
+               st--;
+           }
+       }
+       if(s==0&&st==0){
+           return true;
+       }
+       return f;
+    }
+}
