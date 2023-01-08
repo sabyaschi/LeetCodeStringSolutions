@@ -1,0 +1,24 @@
+class Solution {
+    public int getValue(String str){
+        int val = 0;
+        int tmp = 1;
+        for(int i=str.length()-1; i>=0;i--){
+            char c = str.charAt(i);
+            if(!Character.isDigit(c)){
+                return str.length();
+            }
+            int digit = c-'0';
+            val += digit*tmp;
+            tmp *= 10;
+        }
+        return val;
+    }
+    public int maximumValue(String[] strs) {
+       int ans = Integer.MIN_VALUE;
+       for(String s : strs){
+           int val = getValue(s);
+           ans = Math.max(ans,val);
+       }
+       return ans; 
+    }
+}
