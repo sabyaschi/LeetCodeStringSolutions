@@ -1,0 +1,29 @@
+class Solution {
+    public String smallestNumber(String pattern) {
+        int s = pattern.length() + 1;
+        int arr[] = new int[s];
+        for(int i=0;i < s;i++){
+            arr[i] = i+1;
+        }
+        for(int i = 0;i < pattern.length();i++){
+            int tmp = i;
+            while(tmp < pattern.length() && pattern.charAt(tmp) == 'D'){
+                tmp++;
+            }
+            reverse(arr,i,tmp);
+            if(tmp != i){
+                i = tmp - 1;
+            }
+        }
+        return Arrays.toString(arr).replaceAll("\\[|\\]|,|\\s","");
+    }
+    public void reverse(int arr[] ,int l ,int r){
+        while(l < r){
+            int tmp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = tmp;
+            l++;
+            r--;
+        }
+    }
+}
