@@ -1,0 +1,21 @@
+class Solution {
+    public boolean areNumbersAscending(String s) {
+        List<Integer> ls = new ArrayList<Integer>();
+        String st[] = s.split(" ");
+        for(String str : st){
+            try{
+                int tmp = Integer.parseInt(str);
+                ls.add(tmp);
+            }
+            catch(NumberFormatException e){
+                
+            }
+        }
+
+        for(int i = 0;i < ls.size() - 1;i++){
+            if(ls.get(i) >= ls.get(i+1))
+                return false;
+        }
+        return true;
+    }
+}
