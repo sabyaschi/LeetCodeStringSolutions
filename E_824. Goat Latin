@@ -1,0 +1,22 @@
+class Solution {
+    public String toGoatLatin(String sentence) {
+       String s[] = sentence.split(" ");
+       StringBuilder sb = new StringBuilder();
+       String a = "";
+       for(int i = 0;i < s.length;i++){
+        a += 'a';
+        if(!checkVow(s[i].charAt(0))){
+            s[i] = s[i].substring(1) + s[i].charAt(0);
+        }
+        sb.append(s[i]).append("ma").append(a).append(" ");
+       }
+       sb.deleteCharAt(sb.length() - 1);
+       return sb.toString(); 
+    }
+    boolean checkVow(char c){
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+            return true;
+        }
+        return false;
+    }
+}
