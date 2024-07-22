@@ -1,0 +1,41 @@
+class Solution {
+    public String reformatNumber(String number) {
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb1 = new StringBuilder();
+        int flag = 0;
+        for (char c : number.toCharArray()) {
+            if (c != '-' && c != ' ') {
+                sb.append(c);
+            }
+        }
+        String s = sb.toString();
+        for (int i = 0; i < s.length();) {
+            if (s.length() - i == 4) {
+                if (flag == 1) {
+                    sb1.append("-");
+                }
+                sb1.append(s.substring(i, i + 2));
+                sb1.append("-");
+                sb1.append(s.substring(i + 2, i + 4));
+                flag = 1;
+                break;
+            } else if (s.length() - i == 2) {
+                if (flag == 1) {
+                    sb1.append("-");
+                }
+                sb1.append(s.substring(i, i + 2));
+                flag = 1;
+                break;
+            } else {
+                if (flag == 1) {
+                    sb1.append("-");
+                }
+                sb1.append(s.substring(i, i + 3));
+                flag = 1;
+                i += 3;
+            }
+
+        }
+        return sb1.toString();
+    }
+}
