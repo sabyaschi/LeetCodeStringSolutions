@@ -1,0 +1,36 @@
+class Solution {
+    public int convertTime(String current, String correct) {
+        int min1 = Integer.parseInt(current.substring(0,2))*60;
+        int min2 = Integer.parseInt(correct.substring(0,2))*60;
+        int n1 = min1 + Integer.parseInt(current.substring(3,5));
+        int n2 = min2 + Integer.parseInt(correct.substring(3,5));
+        int total = n2 - n1;
+        int res = 0;
+        if(total == 0){
+            return 0;
+        }
+        while(total > 0){
+            if(total >= 60){
+                int ans = total / 60;
+                res += ans;
+                total = total % 60;
+            }
+            else if(total >= 15){
+                int ans = total / 15;
+                res += ans;
+                total = total % 15;
+            }
+            else if(total >= 5){
+                int ans = total / 5;
+                res += ans;
+                total = total % 5;
+            }
+            else if(total >= 1){
+                int ans = total / 1;
+                res += ans;
+                break;
+            }
+        }
+        return res;
+    }
+}
