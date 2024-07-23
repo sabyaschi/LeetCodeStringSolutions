@@ -1,0 +1,11 @@
+class Solution {
+    public int furthestDistanceFromOrigin(String moves) {
+        int freqL = 0;
+        int freqR = 0;
+        for(char c : moves.toCharArray()){
+            if(c == 'L') freqL++;
+            if(c == 'R') freqR++;
+        }
+        return Math.abs(freqL - freqR) + (moves.length() - (freqL + freqR));
+    }
+}
