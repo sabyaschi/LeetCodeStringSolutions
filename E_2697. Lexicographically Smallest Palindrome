@@ -1,0 +1,18 @@
+class Solution {
+    public String makeSmallestPalindrome(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        int l = 0;
+        int r = s.length() - 1;
+        while(l < r){
+            if(s.charAt(l) > s.charAt(r)){
+                sb.replace(l,l+1,s.charAt(r)+"");
+            }
+            else{
+                sb.replace(r,r+1,s.charAt(l)+"");
+            }
+            l++;
+            r--;
+        }
+        return sb.toString();
+    } 
+}
