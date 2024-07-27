@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isPathCrossing(String path) {
+        List<String> ls = new ArrayList<>();
+        int x = 0 , y = 0;
+        ls.add(0+","+0);
+        for (char c : path.toCharArray()) {
+            if(c == 'N'){
+                y++;
+            }
+            else if(c == 'S'){
+                y--;
+            }
+            else if(c == 'E'){
+                x++;
+            }
+            else if(c == 'W'){
+                x--;
+            }
+            String str = x + "," + y;
+            if(ls.contains(str)){
+                return true;
+            }
+            ls.add(str);
+        }
+        return false;
+    }
+}
