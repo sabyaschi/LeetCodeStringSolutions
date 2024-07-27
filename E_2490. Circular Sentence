@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isCircularSentence(String sentence) {
+        String arr[] = sentence.split(" ");
+        boolean flag = true;
+        for (int i = 0; i < arr.length; i++) {
+            if (i == arr.length - 1) {
+                Character c = arr[i].charAt(arr[i].length() - 1);
+                if (c.equals(arr[0].charAt(0))) {
+                    flag = true;
+                } else {
+                    return false;
+                }
+            } else {
+                Character ch = arr[i].charAt(arr[i].length() - 1);
+                if (ch.equals(arr[i + 1].charAt(0))) {
+                    flag = true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return flag;
+    }
+}
