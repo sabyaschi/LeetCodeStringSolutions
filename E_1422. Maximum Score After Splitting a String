@@ -1,0 +1,34 @@
+class Solution {
+    public int maxScore(String s) {
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        int len  = s.length();
+        for(int r = 1;r < len;r++){
+            int left = checkLeft(s.substring(0,r));
+            int right = checkRight(s.substring(r,s.length()));
+            sum = left + right;
+            max = Math.max(max,sum);
+        }
+        return max;
+    }
+
+    public static int checkLeft(String s) {
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    public static int checkRight(String s) {
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '1') {
+                count += 1;
+            }
+        }
+        return count;
+    }
+}
