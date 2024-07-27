@@ -1,0 +1,37 @@
+class Solution {
+    public int getLucky(String s, int k) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for(int i = 0;i < s.length();i++){
+            int c = s.charAt(i) - 'a';
+            sum1 += findSum(c+1);
+        }
+        k = k - 1;
+        if(k == 0){
+            return sum1;
+        }
+        sum2 = sum1;
+        while(k>0){
+            sum2 = findSum(sum2);
+            if(sum2 <= 9){
+                return sum2;
+            }
+            else{
+                k--;
+            }
+        }
+        return sum2;
+    }
+    public static int findSum(int a){
+        if(a <= 9){
+            return a;
+        }
+        int sum = 0;
+        while(a > 0){
+            int rem = a % 10;
+            sum += rem;
+            a = a / 10;
+        }
+        return sum;
+    }
+}
