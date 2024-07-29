@@ -1,0 +1,22 @@
+class Solution {
+    public int minimumRecolors(String blocks, int k) {
+        int min = Integer.MAX_VALUE;
+        int len  = blocks.length();
+        for(int i = 0;i < len - k + 1;i++){
+            int count = 0;
+            String tmp = blocks.substring(i,k+i);
+            for(int j = 0;j < k;j++){
+                if(tmp.charAt(j) == 'W'){
+                    count++;
+                }
+                else{
+                    continue;
+                }
+            }
+            if(min > count){
+                min = Math.min(min,count);
+            }
+        }
+        return min;
+    }
+}
