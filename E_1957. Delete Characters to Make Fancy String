@@ -1,0 +1,22 @@
+class Solution {
+    public String makeFancyString(String s) {
+        StringBuilder sb = new StringBuilder();
+        int len = s.length();
+        sb.append(s.charAt(0));
+        int prev = s.charAt(0);
+        int freq = 1;
+        for(int i = 1;i < len;i++){
+           if(prev == s.charAt(i)){
+            freq++;
+           }
+           else{
+            freq = 1;
+            prev = s.charAt(i);
+           }
+           if(freq < 3){
+            sb.append(s.charAt(i)).append("");
+           }
+        }
+        return sb.toString();
+    }
+}
