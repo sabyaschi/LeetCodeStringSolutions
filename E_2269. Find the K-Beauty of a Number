@@ -1,0 +1,26 @@
+class Solution {
+    public int divisorSubstrings(int num, int k) {
+        String a = Integer.toString(num);
+        int count = 0;
+        int len = a.length();
+        if(len < k){
+            return 0;
+        }
+        for(int i = 0;i < len - k + 1;i++){
+            String tmp = a.substring(i,i + k);
+            try{
+                int x = Integer.parseInt(tmp);
+                if(x == 0){
+                    continue;
+                }
+                if(num % x == 0){
+                count++;
+                }
+            }
+            catch(Exception e){
+                return 0;
+            }            
+        }
+        return count;
+    }
+}
