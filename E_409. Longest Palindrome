@@ -1,0 +1,17 @@
+class Solution {
+    public int longestPalindrome(String s) {
+        int curr[] = new int[128];
+        int ans = 0;
+        for(char c : s.toCharArray()){
+            curr[c]++;
+        }
+        for(int i = 0;i < 128;i++){
+            int tmp = curr[i];
+            ans += (tmp/2)*2;
+            if(ans % 2 == 0 && tmp % 2 == 1){
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
